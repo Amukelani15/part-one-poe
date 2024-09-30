@@ -56,7 +56,20 @@ public class LoginTest {
     @Test
     public void testCheckPasswordComplexity() {
         System.out.println("checkPasswordComplexity");
-        String password = "";
+        String password = "Ch&&sec@ke99!";
+        Login instance = new Login();
+        boolean expResult = true;
+        boolean result = instance.checkPasswordComplexity(password);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    //testing for the invalid password
+    @Test
+    public void invalidTestPasswordComplexity(){
+        System.out.println("checkPasswordComplexity");
+        String password = "password";
         Login instance = new Login();
         boolean expResult = false;
         boolean result = instance.checkPasswordComplexity(password);
