@@ -21,6 +21,7 @@ public class PartOneOfPoe {
         String password = "";
         String firstName = "";
         String lastName = "";
+        String verUserName, verPassword;
         
         //Creating an object of the Login() method
         Login acc = new Login();
@@ -44,5 +45,20 @@ public class PartOneOfPoe {
         
         //register message
         acc.registerUser("");
+        
+        //loginUser() method
+        System.out.println("=================== LOGIN =====================");
+        do {
+            System.out.print("Please enter your user name: ");
+            verUserName = sc.next();
+        }
+        while(!acc.loginUser(userName, password));
+        
+        //password
+        do {
+            System.out.print("Please enter your password: ");
+            verPassword = sc.next();
+        }
+        while(!acc.loginUser(userName, password));
     }
 }

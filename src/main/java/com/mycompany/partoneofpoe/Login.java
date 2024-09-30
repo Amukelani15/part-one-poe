@@ -75,4 +75,19 @@ public class Login {
         return msg;
     }
     
+    //loginUser() method
+    public boolean loginUser(String userName, String password){
+        
+        String verUserName = userName;
+        String verPassword = password;
+        
+        if (userName.equals(verUserName) && password.equals(verPassword)){
+            return true;
+        }
+        else{
+            return false;
+        }
+        
+    }
+    
 }
