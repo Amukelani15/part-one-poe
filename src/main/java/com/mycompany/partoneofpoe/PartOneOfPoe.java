@@ -41,5 +41,8 @@ public class PartOneOfPoe {
             password = sc.next();
         }
         while(!acc.checkPasswordComplexity(password));
+        
+        //register message
+        acc.registerUser("");
     }
 }

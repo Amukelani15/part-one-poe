@@ -68,4 +68,11 @@ public class Login {
         return results;
     }
     
+    //messaging after registering
+    public String registerUser(String message){
+        String msg = "You have been successfully registered.";
+        System.out.println(msg);
+        return msg;
+    }
+    
 }
