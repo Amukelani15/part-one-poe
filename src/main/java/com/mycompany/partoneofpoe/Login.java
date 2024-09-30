@@ -75,7 +75,7 @@ public class Login {
         return msg;
     }
     
-    //loginUser() method
+    //login user method
     public boolean loginUser(String userName, String password){
         
         String verUserName = userName;
@@ -90,4 +90,10 @@ public class Login {
         
     }
     
+    //Return login status method
+    public String returnLoginStatus(String results, String results1,String firstName, String lastName){
+        results = "\"Welcome \".concat(firstName).concat(lastName).concat(\" it is great to see you again\")";
+        System.out.println(results);
+        return results;
+    }
 }

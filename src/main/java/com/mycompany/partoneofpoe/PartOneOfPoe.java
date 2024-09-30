@@ -60,5 +60,8 @@ public class PartOneOfPoe {
             verPassword = sc.next();
         }
         while(!acc.loginUser(userName, password));
+        
+        //returning login messages
+        acc.returnLoginStatus(lastName, lastName, firstName, lastName);
     }
 }
