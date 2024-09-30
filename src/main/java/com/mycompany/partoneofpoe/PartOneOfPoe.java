@@ -28,10 +28,18 @@ public class PartOneOfPoe {
         //Prompting
         System.out.println("=================== REGISTERING ======================");
         
+        //User name
         do {
             System.out.print("Please enter your user name: ");
             userName = sc.next();
         }
         while(!acc.checkUserName(userName));
+        
+        //Password
+        do {
+            System.out.print("Please enter your password: ");
+            password = sc.next();
+        }
+        while(!acc.checkPasswordComplexity(password));
     }
 }

@@ -4,6 +4,8 @@
  */
 package com.mycompany.partoneofpoe;
 
+import java.util.regex.Pattern;
+
 /**
  *
  * @author RC_Student_lab
@@ -30,18 +32,40 @@ public class Login {
     
     // checking the user name
     public boolean checkUserName(String userName){
-        boolean Found= true;
+        boolean results= true;
         
         if(userName.contains("_") && userName.length()<= 5){
-            Found = true;
+            results = true;
             System.out.println("Username successfully captured");
         }
         else{
-            Found = false;
+            results = false;
             System.out.println("Username is not correctly formatted, please ensure that your username contains an "
                     + "underscore and is no more than 5 characters in length.");
         }
-        return Found;
+        return results;
+    }
+    
+    //Checking the password 
+    public boolean checkPasswordComplexity(String password){
+        boolean results = true;
+        
+        //An object of the Regex Pattern
+        Pattern checkUpperCase = Pattern.compile("[ABCDEFGHIJKLMNOPQRSTUVWXYZ]");
+        Pattern checkNum = Pattern.compile("[0123456789]");
+        Pattern checkSpecial = Pattern.compile("[`~!@#$%^&*-_]");
+        
+        //conditions
+        if (password.length() >= 8 && checkUpperCase.matcher(password).find() && checkNum.matcher(password).find() && checkSpecial.matcher(password).find()){
+            results = true;
+            System.out.println("Password successfully captured.");
+            
+        }
+        else {
+            results = false;
+            System.out.println("Password not correctly formatted, please ensure that the password contains at least 8 characters, a capital letter, a number and a special character.");
+        }
+        return results;
     }
     
 }
