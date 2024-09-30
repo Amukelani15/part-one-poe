@@ -20,21 +20,6 @@ public class LoginTest {
     public LoginTest() {
     }
     
-    @BeforeAll
-    public static void setUpClass() {
-    }
-    
-    @AfterAll
-    public static void tearDownClass() {
-    }
-    
-    @BeforeEach
-    public void setUp() {
-    }
-    
-    @AfterEach
-    public void tearDown() {
-    }
 
     /**
      * Test of checkUserName method, of class Login.
@@ -42,13 +27,27 @@ public class LoginTest {
     @Test
     public void testCheckUserName() {
         System.out.println("checkUserName");
-        String userName = "";
+        String userName = "kyl_1";
+        Login instance = new Login();
+        boolean expResult = true;
+        boolean result = instance.checkUserName(userName);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    //test check for inavaild username
+    @Test
+    public void invalidTestCheckUserName(){
+        System.out.println("checkUserName");
+        String userName = "kyle!!!!!!!";
         Login instance = new Login();
         boolean expResult = false;
         boolean result = instance.checkUserName(userName);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -63,7 +62,7 @@ public class LoginTest {
         boolean result = instance.checkPasswordComplexity(password);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
