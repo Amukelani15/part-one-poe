@@ -16,4 +16,32 @@ public class Login {
     private String firstName;
     private String lastName;
     
+    
+    //constructor
+    public Login(){
+        
+    }
+    public Login (String userName, String password, String firstName, String lastName){
+        this.userName = userName;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    
+    // checking the user name
+    public boolean checkUserName(String userName){
+        boolean Found= true;
+        
+        if(userName.contains("_") && userName.length()<= 5){
+            Found = true;
+            System.out.println("Username successfully captured");
+        }
+        else{
+            Found = false;
+            System.out.println("Username is not correctly formatted, please ensure that your username contains an "
+                    + "underscore and is no more than 5 characters in length.");
+        }
+        return Found;
+    }
+    
 }

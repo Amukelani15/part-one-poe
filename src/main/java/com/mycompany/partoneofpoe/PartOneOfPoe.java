@@ -22,5 +22,16 @@ public class PartOneOfPoe {
         String firstName = "";
         String lastName = "";
         
+        //Creating an object of the Login() method
+        Login acc = new Login();
+        
+        //Prompting
+        System.out.println("=================== REGISTERING ======================");
+        
+        do {
+            System.out.print("Please enter your user name: ");
+            userName = sc.next();
+        }
+        while(!acc.checkUserName(userName));
     }
 }
