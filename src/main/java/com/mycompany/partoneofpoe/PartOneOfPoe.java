@@ -43,6 +43,13 @@ public class PartOneOfPoe {
         }
         while(!acc.checkPasswordComplexity(password));
         
+        //firstname and lastname
+        System.out.print("Please enter your first name: ");
+        firstName = sc.next();
+        
+        System.out.print("Please enter your las name: ");
+        lastName = sc.next();
+        
         //register message
         acc.registerUser("");
         
