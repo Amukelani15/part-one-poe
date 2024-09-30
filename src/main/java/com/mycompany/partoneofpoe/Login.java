@@ -92,9 +92,9 @@ public class Login {
     
     //Return login status method
     public String returnLoginStatus(String results, String firstName, String lastName){
-     
+        
         if (results.equals(true)){
-            System.out.println("Welcome " + firstName.concat(lastName) + " it is great to see you again.");
+            System.out.println("Welcome " + firstName + " " + lastName + " it is great to see you again.");
         }
         else{
             System.out.println("User name or password incorrect, please try again");
