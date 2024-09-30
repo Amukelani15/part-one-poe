@@ -3,6 +3,7 @@
  */
 
 package com.mycompany.partoneofpoe;
+import java.util.*;
 
 /**
  *
@@ -11,6 +12,15 @@ package com.mycompany.partoneofpoe;
 public class PartOneOfPoe {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        
+        //creating an object of the Scanner
+        Scanner sc = new Scanner(System.in);
+        
+        //Declarations
+        String userName = "";
+        String password = "";
+        String firstName = "";
+        String lastName = "";
+        
     }
 }
