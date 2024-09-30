@@ -19,7 +19,7 @@ public class PartOneOfPoe {
         //Declarations
         String userName = "";
         String password = "";
-        String firstName = "";
+        String firstName = " ";
         String lastName = "";
         String verUserName, verPassword;
         
@@ -47,7 +47,7 @@ public class PartOneOfPoe {
         System.out.print("Please enter your first name: ");
         firstName = sc.next();
         
-        System.out.print("Please enter your las name: ");
+        System.out.print("Please enter your last name: ");
         lastName = sc.next();
         
         //register message
@@ -69,6 +69,7 @@ public class PartOneOfPoe {
         while(!acc.loginUser(userName, password));
         
         //returning login messages
-        acc.returnLoginStatus(lastName, lastName, firstName, lastName);
+        String results= "";
+        acc.returnLoginStatus(results, firstName, lastName);
     }
 }
