@@ -106,11 +106,11 @@ public class Task {
     public String printTaskDetails(String taskStatus, String developerDetails, int numberOfTasks, String taskName, String description, String taskID, int taskDuration){
         return "Task status: " + taskStatus + "\nDeveloper details: " + developerDetails + "\nTask number: " + numberOfTasks + 
                 "\nTask name: " + name + "\nTask description: " + description + "\nTask ID: " + taskID +
-                "\nTask duration: " + taskDuration;
+                "\nTask duration: " + taskDuration + "hours";
     }
     
-    public int returnTotalHours(int taskDuration){
+    /*public int returnTotalHours(int taskDuration){
         int totalHours;
         return "Total hours: " + sum(taskDuration);
-    }
+    }*/
 }
