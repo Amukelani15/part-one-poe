@@ -135,7 +135,7 @@ public class LoginTest {
         String lastName = "Ch&&sec@ke99!";
         Login instance = new Login();
         String expResult = "";
-        String result = instance.returnLoginStatus(results, firstName, lastName);
+        String result = instance.returnLoginStatus(firstName, lastName);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -150,7 +150,7 @@ public class LoginTest {
         String lastName = "password";
         Login instance = new Login();
         String expResult = "false";
-        String result = instance.returnLoginStatus(results, firstName, lastName);
+        String result = instance.returnLoginStatus(firstName, lastName);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");

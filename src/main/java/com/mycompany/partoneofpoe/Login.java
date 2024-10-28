@@ -19,20 +19,45 @@ public class Login {
     private String lastName;
     
     
-    //constructor
-    public Login(){
-        
+    //setters and getters
+
+    public String getUserName() {
+        return userName;
     }
-    public Login (String userName, String password, String firstName, String lastName){
+
+    public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+   
+   
     
     // checking the user name
     public boolean checkUserName(String userName){
-        boolean results= true;
+        boolean results= false;
         
         if(userName.contains("_") && userName.length()<= 5){
             results = true;
@@ -48,7 +73,7 @@ public class Login {
     
     //Checking the password 
     public boolean checkPasswordComplexity(String password){
-        boolean results = true;
+        boolean results = false;
         
         //An object of the Regex Pattern
         Pattern checkUpperCase = Pattern.compile("[ABCDEFGHIJKLMNOPQRSTUVWXYZ]");
@@ -76,30 +101,32 @@ public class Login {
     }
     
     //login user method
-    public boolean loginUser(String userName, String password){
-        
-        String verUserName = userName;
-        String verPassword = password;
-        
-        if (userName.equals(verUserName) && password.equals(verPassword)){
-            return true;
+    public boolean loginUser(String userName, String password){    
+       
+   boolean check=false;
+        if (userName.equals(this.userName) && password.equals(this.password)){
+            
+            System.out.println("successfully captured");
+            check=true;
         }
         else{
-            return false;
+            System.out.println("Not successfully captured");
+           check= false;
         }
-        
+       return check; 
     }
     
     //Return login status method
-    public String returnLoginStatus(String results, String firstName, String lastName){
-        
-        if (results.equals(true)){
-            System.out.println("Welcome " + firstName + " " + lastName + " it is great to see you again.");
+    public String returnLoginStatus(String firstName, String lastName){
+   
+        if (loginUser(this.userName, this.password)){
+            return "Welcome " + firstName + " " + lastName + " it is great to see you again.";
         }
         else{
-            System.out.println("User name or password incorrect, please try again");
+            return "User name or password incorrect, please try again";
         }
-        return results;
+        
     }
      
 }
+

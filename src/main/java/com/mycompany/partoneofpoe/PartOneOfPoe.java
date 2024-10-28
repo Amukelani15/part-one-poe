@@ -17,10 +17,10 @@ public class PartOneOfPoe {
         Scanner sc = new Scanner(System.in);
         
         //Declarations
-        String userName = "";
-        String password = "";
-        String firstName = " ";
-        String lastName = "";
+        String userName="";
+        String password="";
+        String firstName="";
+        String lastName ="";
         String verUserName, verPassword;
         
         //Creating an object of the Login() method
@@ -33,6 +33,7 @@ public class PartOneOfPoe {
         do {
             System.out.print("Please enter your user name: ");
             userName = sc.next();
+            acc.setUserName(userName);
         }
         while(!acc.checkUserName(userName));
         
@@ -40,36 +41,45 @@ public class PartOneOfPoe {
         do {
             System.out.print("Please enter your password: ");
             password = sc.next();
+            acc.setPassword(password);
         }
         while(!acc.checkPasswordComplexity(password));
         
         //firstname and lastname
         System.out.print("Please enter your first name: ");
         firstName = sc.next();
+        acc.setFirstName(firstName);
         
         System.out.print("Please enter your last name: ");
         lastName = sc.next();
+        acc.setLastName(lastName);
         
         //register message
         acc.registerUser("");
         
         //loginUser() method
         System.out.println("=================== LOGIN =====================");
+        
+        //to validate
+        //boolean loginSuccessful = true;
         do {
             System.out.print("Please enter your user name: ");
             verUserName = sc.next();
-        }
-        while(!acc.loginUser(userName, password));
         
         //password
-        do {
+        
             System.out.print("Please enter your password: ");
             verPassword = sc.next();
+            
+            //loginSuccessful = acc.loginUser(verUserName ,  verPassword);
+            
+            //returning 
+           
         }
-        while(!acc.loginUser(userName, password));
+        while(!acc.loginUser(verUserName ,  verPassword));
         
-        //returning login messages
-        String results= "";
-        acc.returnLoginStatus(results, firstName, lastName);
+        //
+        System.out.println(acc.returnLoginStatus(firstName, lastName));
+         
     }
 }
