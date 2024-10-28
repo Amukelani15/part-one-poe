@@ -4,6 +4,7 @@
 
 package com.mycompany.partoneofpoe;
 import java.util.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -80,6 +81,30 @@ public class PartOneOfPoe {
         
         //
         System.out.println(acc.returnLoginStatus(firstName, lastName));
+        
+        //Adding part two of the POE which is the functionality of the application
+        //Welcoming the user to EasyKanban after a successful login
+        JOptionPane.showMessageDialog(null, "Welcome to EasyKanban");
+        int option = Integer.parseInt(JOptionPane.showInputDialog("Choose an option to perform:\n" + "(1)Add tasks\n" + "(2)Show report\n" + "(3)Quit"));
+        
+        boolean quit = false;
+        while(!quit){
+            switch(option) {
+                case 1:
+                    
+                case 2:
+                    JOptionPane.showMessageDialog(null, "Coming soon");
+                    break;
+                case 3:
+                   System.exit(0);
+                   quit = true;
+                   break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Invalid input please enter a valid number from 1 to 3");
+                   
+            }
+            option = Integer.parseInt(JOptionPane.showInputDialog("Choose an option to perform: \n" + "(1)Add tasks\n" + "(2)Show report\n" + "(3)Quit"));
+        }
          
     }
 }
