@@ -87,11 +87,23 @@ public class PartOneOfPoe {
         JOptionPane.showMessageDialog(null, "Welcome to EasyKanban");
         int option = Integer.parseInt(JOptionPane.showInputDialog("Choose an option to perform:\n" + "(1)Add tasks\n" + "(2)Show report\n" + "(3)Quit"));
         
+        //Creating an object of the Task class
+        Task task = new Task();
+        
         boolean quit = false;
         while(!quit){
             switch(option) {
                 case 1:
+                    int numTasks = 0;
                     
+                    numTasks = Integer.parseInt(JOptionPane.showInputDialog("Enter the number of tasks you want perform"));
+                    
+                    for(int numberOfTasks = 0; numberOfTasks < numTasks;numberOfTasks++ ){
+                        JOptionPane.showMessageDialog(null, "Number of tasks: " + numberOfTasks);
+                        
+                        String name=JOptionPane.showInputDialog("Please enter the name of the task: ");
+                        task.setName(name);
+                    }
                 case 2:
                     JOptionPane.showMessageDialog(null, "Coming soon");
                     break;
