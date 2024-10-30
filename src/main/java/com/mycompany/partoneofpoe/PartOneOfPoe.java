@@ -110,7 +110,7 @@ public class PartOneOfPoe {
                     
                     //A for-loop that will execute according to the number of tasks the user will perform
                     for(int numberOfTasks = 0; numberOfTasks < numTasks;numberOfTasks++ ){
-                        JOptionPane.showMessageDialog(null, "Number of tasks: " + numberOfTasks);
+                        JOptionPane.showMessageDialog(null, "Task number: " + numberOfTasks);
                         
                         //The user is asked to input the name of the task
                         String name=JOptionPane.showInputDialog("Please enter the name of the task: ");
