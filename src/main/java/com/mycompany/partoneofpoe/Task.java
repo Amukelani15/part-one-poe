@@ -99,14 +99,14 @@ public class Task {
     public String CreateTaskID(String name, int number, String devName){
        String ID = name.substring(0, 2) + ":" + number + ":" + devName.substring(devName.length()- 3);
         
-        return ID.toUpperCase();
+       return ID.toUpperCase();
     }
     
     //The method that returns the full details of each task which is the Task status, developer details, Task number, Task name, Task description, Task ID, Task duration and Totak hours
     public String printTaskDetails(String taskStatus, String developerDetails, int numberOfTasks, String taskName, String description, String taskID, int taskDuration, int total){
         return "Task status: " + taskStatus + "\nDeveloper details: " + developerDetails + "\nTask number: " + numberOfTasks + 
                 "\nTask name: " + name + "\nTask description: " + description + "\nTask ID: " + taskID +
-                "\nTask duration: " + taskDuration + "hours" + "\nTotal hours: " + total + "hours";
+                "\nTask duration: " + taskDuration + " hours" + "\nTotal hours: " + total + " hours";
     }
     
     //A method that returns the number of total hours after each task

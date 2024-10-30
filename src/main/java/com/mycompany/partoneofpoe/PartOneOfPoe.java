@@ -4,6 +4,7 @@
 
 package com.mycompany.partoneofpoe;
 import java.util.*;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,7 +17,8 @@ public class PartOneOfPoe {
         
         //creating an object of the Scanner
         Scanner sc = new Scanner(System.in);
-        
+        final JDialog dialog = new JDialog();
+        dialog.setAlwaysOnTop(true);
         //Declarations
         String userName="";
         String password="";
@@ -133,7 +135,7 @@ public class PartOneOfPoe {
                         //The system will display the task ID which contains the first two letters of the Task name, Task number and the last three letters assigned to the developer details 
                         String taskID =task.CreateTaskID(name, numberOfTasks, developerDetails);
                         task.setTaskID(taskID);
-                        JOptionPane.showMessageDialog(null, "Task id :" + task.getTaskID());
+                        JOptionPane.showMessageDialog(null, "Task ID :" + task.getTaskID());
                         
                         
                         //The user is asked to input the task status from the options of to do, doing OR done
@@ -188,6 +190,6 @@ public class PartOneOfPoe {
             //If the user did not input option 3 for quiting the user will be asked again to input the option they want to perform
             option = Integer.parseInt(JOptionPane.showInputDialog("Choose an option to perform: \n" + "(1)Add tasks\n" + "(2)Show report\n" + "(3)Quit"));
         }
-         
+        //dialog.Dispse();
     }
 }
