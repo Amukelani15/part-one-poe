@@ -105,11 +105,11 @@ public class Login {
     boolean check=false;
         if (userName.equals(this.userName) && password.equals(this.password)){
             
-            System.out.println("successfully captured");
+            System.out.println("Successfully logged in");
             check=true;
         }
         else{
-            System.out.println("Not successfully captured");
+            System.out.println("User name or password incorrect, please try again");
             check= false;
         }
        return check; 
