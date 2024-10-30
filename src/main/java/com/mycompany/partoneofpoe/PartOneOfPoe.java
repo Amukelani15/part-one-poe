@@ -104,6 +104,7 @@ public class PartOneOfPoe {
             switch(option) {
                 case 1:
                     int numTasks = 0;
+                    int totalHours = 0;
                     
                     numTasks = Integer.parseInt(JOptionPane.showInputDialog("Enter the number of tasks you want perform"));
                     
@@ -114,31 +115,57 @@ public class PartOneOfPoe {
                         task.setName(name);
                         
                         do{
-                            JOptionPane.showInputDialog("Please enter a short description of the task that is less than 50 characters");
+                            description = JOptionPane.showInputDialog("Please enter a short description of the task that is less than 50 characters");
                             task.setDescription(description);                         
                         }
                         while(!task.checkTaskDescription(description));
                         
-                        String developerDetails =JOptionPane.showInputDialog("Please enter the developer details (first name and las name):");
+                        String developerDetails =JOptionPane.showInputDialog("Please enter the developer details (first name and last name):");
                         task.setDeveloperDetails(developerDetails);
                         
                         //task duration
-                        int taskDuration = Integer.parseInt(JOptionPane.showInputDialog("Please enter the duration of the task:"));
+                        int taskDuration = Integer.parseInt(JOptionPane.showInputDialog("Please enter the duration of the task in hours:"));
                         task.setTaskDuration(taskDuration);
                         
                         //Task ID
                         String taskID =task.CreateTaskID(name, numberOfTasks, developerDetails);
                         task.setTaskID(taskID);
                         JOptionPane.showMessageDialog(null, "Task id :" + task.getTaskID());
+                        totalHours += taskDuration;
                         
                         //task status
-                        String taskStatus = JOptionPane.showInputDialog("Please select a task status:\n" + "(1)To do\n" + "(2)Done\n" + "(3)Doing");
-                        //int status = Integer.parseInt(taskStatus);
-                        task.setTaskStatus( taskStatus);
+                        String getTaskStatus = JOptionPane.showInputDialog("Please select a task status:\n" + "(1)To do\n" + "(2)Doing\n" + "(3)Done");
+                        int status = Integer.parseInt(getTaskStatus);
                         
+                        
+                        String taskSta ="";
+                        
+                        switch(status) {
+                            case 1:
+                                taskSta = "To do";
+                                break;
+                            case 2:
+                                taskSta = "Doing";
+                                break;
+                            case 3:
+                                taskSta = "Done";
+                                break;
+                            default:
+                                JOptionPane.showMessageDialog(null, "Invalid input please enter a number btween 1 and 3");
+                                JOptionPane.showInputDialog("Please select a task status:\n" + "(1)To do\n" + "(2)Done\n" + "(3)Doing");
+                            }
+                        task.setTaskStatus(taskSta);
+                        
+                           
                         //full details                       
-                        JOptionPane.showMessageDialog(null, "THE TASK'S FULL DETAILS \n" + task.printTaskDetails(taskStatus, developerDetails, numberOfTasks, taskID, description, taskID, taskDuration));
-                        task.printTaskDetails(taskStatus, developerDetails, numberOfTasks, taskID, description, taskID, taskDuration);
+                        JOptionPane.showMessageDialog(null, "THE TASK'S FULL DETAILS \n" + task.printTaskDetails(taskSta, developerDetails, numberOfTasks, taskID, description, taskID, taskDuration, totalHours));
+                        task.printTaskDetails(taskSta, developerDetails, numberOfTasks, taskID, description, taskID, taskDuration, totalHours);
+                        
+                        //dispalying the total hours
+                        int[]totHours = {};
+                        for (int i = 0; i < totHours.length; i++){
+                             JOptionPane.showMessageDialog(null, task.returnTotalHours(taskDuration));
+                         }
                     }
                     break;
                 case 2:

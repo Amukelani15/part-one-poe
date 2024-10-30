@@ -103,14 +103,14 @@ public class Task {
     }
     
     //The method that displays the full details of esch task
-    public String printTaskDetails(String taskStatus, String developerDetails, int numberOfTasks, String taskName, String description, String taskID, int taskDuration){
+    public String printTaskDetails(String taskStatus, String developerDetails, int numberOfTasks, String taskName, String description, String taskID, int taskDuration, int total){
         return "Task status: " + taskStatus + "\nDeveloper details: " + developerDetails + "\nTask number: " + numberOfTasks + 
                 "\nTask name: " + name + "\nTask description: " + description + "\nTask ID: " + taskID +
-                "\nTask duration: " + taskDuration + "hours";
+                "\nTask duration: " + taskDuration + "hours" + "\nTotal hours: " + total + "hours";
     }
     
-    /*public int returnTotalHours(int taskDuration){
-        int totalHours;
-        return "Total hours: " + sum(taskDuration);
-    }*/
+    public int returnTotalHours(int taskDuration){
+        int totalHours = taskDuration;
+        return totalHours;
+    }
 }
