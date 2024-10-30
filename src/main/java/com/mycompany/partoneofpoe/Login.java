@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
  */
 public class Login {
     
-    //attributes
+    //The attributes of the Login class
     private String userName;
     private String password;
     private String firstName;
@@ -20,7 +20,6 @@ public class Login {
     
     
     //setters and getters
-
     public String getUserName() {
         return userName;
     }
@@ -55,7 +54,7 @@ public class Login {
    
    
     
-    // checking the user name
+    // A method that checks the user name if it contains an underscore and is less than 5 characters in length and returns an approriate message 
     public boolean checkUserName(String userName){
         boolean results= false;
         
@@ -71,7 +70,7 @@ public class Login {
         return results;
     }
     
-    //Checking the password 
+    //A method that checks if the password is less than 8 characters in length, contains an uppercase character, contains a number and contains a special character and returns the appropriate message 
     public boolean checkPasswordComplexity(String password){
         boolean results = false;
         
@@ -93,17 +92,17 @@ public class Login {
         return results;
     }
     
-    //messaging after registering
+    //A method that returns a message for successfully registering only if the user inputs the user name and password that meets the requirements 
     public String registerUser(String message){
         String msg = "You have been successfully registered.";
         System.out.println(msg);
         return msg;
     }
     
-    //login user method
+    //A login method that checks that the entered user name and password for logging in is the same as the registered user name and password
     public boolean loginUser(String userName, String password){    
        
-   boolean check=false;
+    boolean check=false;
         if (userName.equals(this.userName) && password.equals(this.password)){
             
             System.out.println("successfully captured");
@@ -111,12 +110,12 @@ public class Login {
         }
         else{
             System.out.println("Not successfully captured");
-           check= false;
+            check= false;
         }
        return check; 
     }
     
-    //Return login status method
+    //A method that returns the welcome message to the user if they successfully logged in else it will prompt them to input the correct user name or password
     public String returnLoginStatus(String firstName, String lastName){
    
         if (loginUser(this.userName, this.password)){

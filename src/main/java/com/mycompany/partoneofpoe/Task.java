@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  */
 public class Task {
     
-    //attributes
+    //The attributes of the Task class
     private String name;
     private int numberOfTasks;
     private String description;
@@ -21,7 +21,7 @@ public class Task {
     private String taskID;
     private String taskStatus;
     
-    //Setters and getters 
+    //Setters and getters of all the attributes 
     public String getName() {
         return name;
     }
@@ -78,7 +78,7 @@ public class Task {
         this.taskStatus = taskStatus;
     }
     
-    //The method that checks that the task description is less than 50 characters and returns the appropriate message
+    //The method that checks that the task description is less than 50 characters and returns the appropriate message according to the number of characters
     public boolean checkTaskDescription(String description){
         boolean found = false;
         
@@ -95,20 +95,21 @@ public class Task {
         return found;
     }
     
-    //
+    //A method that creates and returns a Task ID which contains the first two letters of the Task name, a colon, and contains the task number, a colon and contains the last three letters assigned to the developer's details 
     public String CreateTaskID(String name, int number, String devName){
        String ID = name.substring(0, 2) + ":" + number + ":" + devName.substring(devName.length()- 3);
         
         return ID.toUpperCase();
     }
     
-    //The method that displays the full details of esch task
+    //The method that returns the full details of each task which is the Task status, developer details, Task number, Task name, Task description, Task ID, Task duration and Totak hours
     public String printTaskDetails(String taskStatus, String developerDetails, int numberOfTasks, String taskName, String description, String taskID, int taskDuration, int total){
         return "Task status: " + taskStatus + "\nDeveloper details: " + developerDetails + "\nTask number: " + numberOfTasks + 
                 "\nTask name: " + name + "\nTask description: " + description + "\nTask ID: " + taskID +
                 "\nTask duration: " + taskDuration + "hours" + "\nTotal hours: " + total + "hours";
     }
     
+    //A method that returns the number of total hours after each task
     public int returnTotalHours(int taskDuration){
         int totalHours = taskDuration;
         return totalHours;
