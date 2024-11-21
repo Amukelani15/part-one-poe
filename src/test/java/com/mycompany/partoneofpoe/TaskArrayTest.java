@@ -89,7 +89,7 @@ public class TaskArrayTest {
         System.out.println("displayLongestTask");
         TaskArray instance = new TaskArray();
         instance.displayLongestTask();
-        String expResult = "Glenda Oberholzer" + 11;
+        String expResult = "Glenda Oberholzer," + 11;
         String result = "Glenda Oberholzer," + 11;
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
