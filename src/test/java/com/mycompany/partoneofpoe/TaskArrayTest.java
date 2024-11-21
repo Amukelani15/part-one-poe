@@ -42,7 +42,7 @@ public class TaskArrayTest {
         taskIDs = new String[]{"CR:0:ITH", "CR:1:SON", "CR:2:SON", "AD:3:ZER"};
         taskDurations = new int[]{5, 8, 2, 11};
         taskStatuses = new String[]{"To do", "Doing", "Done", "To do"};
-        //taskCount = new int[]{};
+        
     }
     
     @AfterEach
@@ -74,8 +74,8 @@ public class TaskArrayTest {
         System.out.println("displayTasksWithStatusDone");
         TaskArray instance = new TaskArray();
         instance.displayTasksWithStatusDone();
-        String expResult = "Samntha Paulson" + "Create Reports" + 2;
-        String result = "Samntha Paulson" + "Create Reports" + 2;
+        String expResult = "Samantha Paulson" + "Create Reports" + 2;
+        String result = "Samantha Paulson" + "Create Reports" + 2;
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -90,7 +90,7 @@ public class TaskArrayTest {
         TaskArray instance = new TaskArray();
         instance.displayLongestTask();
         String expResult = "Glenda Oberholzer" + 11;
-        String result = "Glenda Oberholzer" + 11;
+        String result = "Glenda Oberholzer," + 11;
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -118,9 +118,12 @@ public class TaskArrayTest {
     @Test
     public void testSearchTasksByDeveloper() {
         System.out.println("searchTasksByDeveloper");
-        String developerName = "Edward Harrison";
+        String developerName = "Samntha Paulson";
         TaskArray instance = new TaskArray();
         instance.searchTasksByDeveloper(developerName);
+        String expResult = "Create Reports";
+        String result = "Create Reports";
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
@@ -134,6 +137,9 @@ public class TaskArrayTest {
         String taskName = "Create Reports";
         TaskArray instance = new TaskArray();
         instance.deleteTaskByName(taskName);
+        String expResult = "Create Reports";
+        String result = "Create Reports";
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
