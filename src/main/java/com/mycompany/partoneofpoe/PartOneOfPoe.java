@@ -89,11 +89,14 @@ public class PartOneOfPoe {
         //Welcoming the user to the EasyKanban application after logging in successfully
         JOptionPane.showMessageDialog(null, "Welcome to EasyKanban");
         
-        //Asking the user what they want to do through the options of adding tasks, show report OR if they want to exit
-        int option = Integer.parseInt(JOptionPane.showInputDialog("Choose an option to perform:\n" + "(1)Add tasks\n" + "(2)Show report\n" + "(3)Quit"));
-        
         //Creating an object of the Task class
         Task task = new Task();
+        //Creating an object of the TaskArray class
+        TaskArray taskArray = new TaskArray();
+        
+        
+        //Asking the user what they want to do through the options of adding tasks, show report OR if they want to exit
+        int option = Integer.parseInt(JOptionPane.showInputDialog("Choose an option to perform:\n" + "(1)Add tasks\n" + "(2)Show report\n" + "(3)Quit"));
         
         boolean quit = false;
         //A while loop that will execute for the user to input what they want to do and loop again except if the user enter quit 
@@ -101,16 +104,15 @@ public class PartOneOfPoe {
             switch(option) {
                 //If the user chooses option 1 the system will execute the task features and at the end it will display the user's full task details
                 case 1:
-                    //Declarations
-                    int numTasks = 0;
+                    //Declaration
                     int totalHours = 0;
                     
                     //The user is asked to input the input the number of tasks they will perform
-                    numTasks = Integer.parseInt(JOptionPane.showInputDialog("Enter the number of tasks you want perform"));
+                    int numTasks = Integer.parseInt(JOptionPane.showInputDialog("Enter the number of tasks you want to perform:"));
                     
                     //A for-loop that will execute according to the number of tasks the user will perform
-                    for(int numberOfTasks = 0; numberOfTasks < numTasks;numberOfTasks++ ){
-                        JOptionPane.showMessageDialog(null, "Task number: " + numberOfTasks);
+                    for(int i = 0; i < numTasks; i++ ){
+                        JOptionPane.showMessageDialog(null, "Task number: " + (i));
                         
                         //The user is asked to input the name of the task
                         String name=JOptionPane.showInputDialog("Please enter the name of the task: ");
@@ -133,46 +135,96 @@ public class PartOneOfPoe {
                         totalHours += taskDuration;
                         
                         //The system will display the task ID which contains the first two letters of the Task name, Task number and the last three letters assigned to the developer details 
-                        String taskID =task.CreateTaskID(name, numberOfTasks, developerDetails);
+                        String taskID =task.CreateTaskID(name, i, developerDetails);
                         task.setTaskID(taskID);
                         JOptionPane.showMessageDialog(null, "Task ID :" + task.getTaskID());
                         
                         
                         //The user is asked to input the task status from the options of to do, doing OR done
-                        String getTaskStatus = JOptionPane.showInputDialog("Please select a task status:\n" + "(1)To do\n" + "(2)Doing\n" + "(3)Done");
-                        int status = Integer.parseInt(getTaskStatus);
+                        int status = Integer.parseInt(JOptionPane.showInputDialog("Select task status:\n" + "(1) To do\n" + "(2) Doing\n" + "(3) Done"));
                         
                         //Declaration
-                        String taskSta ="";
+                        String taskStatus ="";
                         
                         switch(status) {
                             case 1:
-                                taskSta = "To do";
+                                taskStatus = "To do";
                                 break;
                             case 2:
-                                taskSta = "Doing";
+                                taskStatus = "Doing";
                                 break;
                             case 3:
-                                taskSta = "Done";
+                                taskStatus = "Done";
                                 break;
                             default:
                                 //If the user enters a number not between one and 3 for the task status they are prompted again to enter the task status input
-                                JOptionPane.showMessageDialog(null, "Invalid input please enter a number between 1 and 3");
-                                JOptionPane.showInputDialog("Please select a task status:\n" + "(1)To do\n" + "(2)Done\n" + "(3)Doing");
+                                JOptionPane.showMessageDialog(null, "Invalid input. Setting status to 'To do'.");
+                                taskStatus = "To do";
                             }
-                        task.setTaskStatus(taskSta);
+                        task.setTaskStatus(taskStatus);
+                        
+                        //adding the array contents into TaskArray 
+                        taskArray.addTask(developerDetails, name, taskID, taskDuration, taskStatus);
                         
                            
                         //The system then displays the task's full details                       
-                        JOptionPane.showMessageDialog(null, "THE TASK'S FULL DETAILS \n" + task.printTaskDetails(taskSta, developerDetails, numberOfTasks, taskID, description, taskID, taskDuration, totalHours));
-                        task.printTaskDetails(taskSta, developerDetails, numberOfTasks, taskID, description, taskID, taskDuration, totalHours);
+                        JOptionPane.showMessageDialog(null, "THE TASK'S FULL DETAILS \n" + task.printTaskDetails(taskStatus, developerDetails, i, name, description, taskID, taskDuration, totalHours));
                         
                         //A for-loop that displays the total hours and increments the number of total of hours inputted 
                         int[]totHours = {};
-                        for (int i = 0; i < totHours.length; i++){
+                        for (int z = 0; z < totHours.length; z++){
                              JOptionPane.showMessageDialog(null, task.returnTotalHours(taskDuration));
                          }
                     }
+                    
+                    //Adding part 3 of the POE which is to store data and display task report
+                    boolean stop = false;
+                    //A do-while loop that excutes when the user wants to do something with in the "Report list" and stops when the user enters number 7 for exiting
+                    do{
+                        //The report list that the user will choose from when they want to perform the specific tasks listed
+                        int reportList = Integer.parseInt(JOptionPane.showInputDialog("Choose an option:\n" +
+                        "(1) Displays the tasks with status 'Done'\n" +
+                        "(2) Displays the task with the longest duration\n" +
+                        "(3) Searches for a task by name\n" +
+                        "(4) Searches for a tasks by developer name\n" +
+                        "(5) Deletes a task by task name\n" +
+                        "(6) Display all tasks\n" +
+                        "(7) stop"));
+                    
+                    switch (reportList) {
+                        case 1://When the user chooses (1) the displayTasksWithStatusDone() in the TaskArray class will be called for execution and displays the statuses with status done
+                            taskArray.displayTasksWithStatusDone();
+                            break;
+                        case 2://When the user chooses (2) the displayLongestTask() in the TaskArray class will be called for execution and displays the tasks with the longest hours
+                            taskArray.displayLongestTask();
+                            break;
+                        case 3://When the user chooses (3) the displayTasksByName() in the TaskArray class will be called for execution and displays the task that is inputted by the user according to the task name
+                            String searchName = JOptionPane.showInputDialog("Please enter task name to search:");
+                            taskArray.searchTaskByName(searchName); 
+                            break;
+                        case 4://When the user chooses (4) the displayTasksByDeveloper() in the TaskArray class will be called for execution and displays the task that is inputted by the user according to the developer name 
+                            String searchDeveloper = JOptionPane.showInputDialog("Please enter developer name to search:");
+                            taskArray.searchTasksByDeveloper(searchDeveloper); 
+                            break;
+                        case 5://When the user chooses (5) the deleteTasksByName() in the TaskArray class will be called for execution and displays the task that is inputted by the user according to the task name
+                            String deleteName = JOptionPane.showInputDialog("Please enter task name to delete:");
+                            taskArray.deleteTaskByName(deleteName); 
+                            break;
+                        case 6:/*When the user chooses (6) the displayAllTasks() in the TaskArray class will be called for execution and will display the a report of tasks.
+                                Note that the Deleted tasks will not be displayed when the displayAllTasks() method executes */
+                            taskArray.displayAllTasks();
+                            break;
+                        case 7://When the user chooses (7) the program ends
+                            System.exit(0);
+                            stop = true;
+                            break;
+                            
+                        default:
+                            JOptionPane.showMessageDialog(null, "Invalid option.");
+                            break;
+                    }
+                    }
+                    while(!stop);
                     break;
                 case 2:
                     //If the user chooses option 2 the system will display coming soon
